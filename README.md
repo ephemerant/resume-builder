@@ -1,2 +1,2 @@
 # Resume Builder
-A way of saving the important bits of data contained within your resume and quickly being able to display it in different styles and formats.
+An easy way of taking the important pieces of information contained within your resume and using it to autofill from a list of provided  and user-generated resume templates.
