@@ -1,0 +1,138 @@
+[ng-cloak] {
+    display: none;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    margin: 20px;
+    background: #eee;
+    font-family: Helvetica, sans-serif;
+}
+
+section {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+section>h1 {
+    background: #05a;
+    color: white;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+section>h1>* {
+    margin-top: -3px;
+}
+
+section>div {
+    background: white;
+    padding: 10px 20px;
+}
+
+section label {
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.two-col {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.two-col>* {
+    width: 50%;
+}
+
+.two-col>*:nth-of-type(2n+1) {
+    padding-right: 10px;
+}
+
+.two-col>*:nth-of-type(2n) {
+    padding-left: 10px;
+}
+
+.subtitle {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table th,
+.table td {
+    text-align: left;
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+
+.fas {
+    font-size: 1.4rem;
+}
+
+.fa-edit,
+.fa-check {
+    color: #0a0;
+}
+
+.fa-trash-alt,
+.fa-times {
+    color: #a00;
+}
+
+.pull-right {
+    float: right;
+}
+
+.button.white {
+    background: white;
+    color: black;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button.white:hover {
+    background: transparent;
+    border-color: white;
+    color: white;
+}
+
+.no-wrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 380px;
+    display: block;
+}
+
+.button .fas {
+    font-size: 1rem;
+    color: inherit;
+}
