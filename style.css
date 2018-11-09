@@ -41,11 +41,19 @@ section>div {
     padding: 10px 20px;
 }
 
-section label {
-    display: block;
+label {
     font-weight: bold;
     cursor: pointer;
+}
+
+section label,
+.label-group label {
+    display: block;
     margin-bottom: 10px;
+}
+
+.label-group label:last-of-type {
+    margin-bottom: 0;
 }
 
 input {
@@ -108,20 +116,48 @@ input {
     float: right;
 }
 
-.button.white {
-    background: white;
-    color: black;
-    border: 2px solid white;
+.pull-right+.pull-right {
+    margin-right: 5px;
+}
+
+.button:disabled {
+    opacity: 0.5;
+}
+
+.button {
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
     font-weight: bold;
+    border: 2px solid white;
+    text-decoration: none;
 }
 
-.button.white:hover {
+.button.white,
+.button.white[disabled]:hover,
+.button.white.invert:hover {
+    background: white;
+    color: #05a;
+}
+
+.button.white:hover,
+.button.white.invert,
+.button.white.invert[disabled]:hover {
     background: transparent;
-    border-color: white;
     color: white;
+}
+
+.button.blue,
+.button.blue.invert:hover {
+    background: #05a;
+    color: white;
+    border-color: #05a;
+}
+
+.button.blue:hover,
+.button.blue.invert {
+    background: transparent;
+    color: #05a;
 }
 
 .no-wrap {
@@ -135,4 +171,42 @@ input {
 .button .fas {
     font-size: 1rem;
     color: inherit;
+}
+
+[ng-sort] {
+    cursor: pointer;
+}
+
+/* ripple effect */
+.button {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0)
+}
+
+.button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, white 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s
+}
+
+.button.invert:after {
+    background-image: radial-gradient(circle, black 10%, transparent 10.01%);
+}
+
+.button:not([disabled]):active:after {
+    transform: scale(0, 0);
+    opacity: .2;
+    transition: 0s
 }

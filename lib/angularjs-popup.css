@@ -1,0 +1,62 @@
+.item-popup h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    background: #05a;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .4)
+}
+
+.item-popup-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 100;
+    max-width: none;
+}
+
+.item-popup-wrapper.active {
+    background: rgba(0, 0, 0, .8)
+}
+
+.item-popup {
+    width: 800px;
+    max-width: 100%;
+    background: #fff;
+    max-height: 100%;
+    cursor: default;
+    margin-top: 200%;
+    transition: .3s;
+    outline: 0;
+    box-shadow: 0 10px 50px #000
+}
+
+.item-popup-wrapper.active .item-popup {
+    margin-top: 0
+}
+
+.popup-body>form input {
+    width: 100%;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px
+}
+
+.popup-body>form {
+    display: flex
+}
+
+.popup-body {
+    padding: 20px
+}

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="lib/angularjs-popup.css">
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
@@ -8,9 +9,27 @@
     <section>
         <h1>
             General
+
             <button class="button white pull-right" ng-click="save()">
                 <i class="fas fa-check"></i>
                 Save Changes
+            </button>
+
+            <!-- export stub -->
+            <button class="button white invert pull-right" disabled ng-if="!export">
+                <i class="fas fa-arrow-down"></i>
+                Export Data
+            </button>
+            <!-- export link -->
+            <a class="button white invert pull-right" ng-if="export">
+                <i class="fas fa-arrow-down"></i>
+                Export Data
+            </a>
+
+            <!-- import stub -->
+            <button class="button white invert pull-right" ng-click="import()" disabled>
+                <i class="fas fa-arrow-up"></i>
+                Import Data
             </button>
         </h1>
         <div class="two-col">
@@ -33,6 +52,7 @@
         </div>
     </section>
 
+    <!-- links -->
     <section>
         <h1>
             Website/Social Links
@@ -47,38 +67,28 @@
                     <tr>
                         <th width="10%">Move</th>
                         <th width="20%">Type</th>
-                        <th width="50%">URL</th>
-                        <th width="10%">Edit</th>
-                        <th width="10%">Delete</th>
+                        <th width="65%">URL</th>
+                        <th width="5%">Edit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-sortable>
                     <tr ng-repeat="item in state.links track by $index">
                         <td>
-                            <i class="fas fa-arrows-alt" ng-if="!item.editing"></i>
+                            <i class="fas fa-arrows-alt" ng-sort></i>
                         </td>
                         <td>
-                            <span ng-if="!item.editing" class="no-wrap" style="max-width: 152px;">
+                            <span class="no-wrap" style="max-width: 150px;">
+                                <i class="{{ linkTypes[item.type] }}" style="font-size: 18px; width: 18px;"></i>
                                 {{item.type}}
                             </span>
-                            <input ng-if="item.editing" ng-model="item.editing.type">
                         </td>
                         <td>
-                            <span ng-if="!item.editing" class="no-wrap" style="max-width: 380px;">
+                            <span class="no-wrap" style="max-width: 487px;">
                                 <a href="{{item.url}}" target="_blank">{{item.url}}</a>
                             </span>
-                            <input ng-if="item.editing" ng-model="item.editing.url">
                         </td>
                         <td>
-                            <!-- not editing -->
-                            <i class="fas fa-edit" ng-click="editLink(item)" ng-if="!item.editing"></i>
-                            <!-- editing -->
-                            <i class="fas fa-check" ng-click="saveLink(item, $index)" ng-if="item.editing"></i>
-                            <i class="fas fa-times" ng-click="cancelLink(item, $index)" ng-if="item.editing"></i>
-                        </td>
-                        <td>
-                            <!-- not editing -->
-                            <i class="fas fa-trash-alt" ng-click="deleteLink($index)" ng-if="!item.editing"></i>
+                            <i class="fas fa-edit" ng-click="editLink(item, $index)"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -86,7 +96,7 @@
         </div>
     </section>
 
-    <!-- TODO: education -->
+    <!-- education -->
     <section>
         <h1>
             Education
@@ -100,53 +110,32 @@
                 <thead>
                     <tr>
                         <th width="10%">Move</th>
-                        <th width="20%">Degree</th>
+                        <th width="25%">Degree</th>
                         <th width="20%">School</th>
                         <th width="20%">Location</th>
-                        <th width="10%">Date</th>
-                        <th width="10%">Edit</th>
-                        <th width="10%">Delete</th>
+                        <th width="15%">Time Span</th>
+                        <th width="5%">Edit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-sortable>
                     <tr ng-repeat="item in state.education track by $index">
                         <td>
-                            <i class="fas fa-arrows-alt" ng-if="!item.editing"></i>
+                            <i class="fas fa-arrows-alt" ng-sort></i>
                         </td>
                         <td>
-                            <span ng-if="!item.editing">
-                                {{item.degree}}
-                            </span>
-                            <input ng-if="item.editing" ng-model="item.editing.degree">
+                            {{item.degree}}
                         </td>
                         <td>
-                            <span ng-if="!item.editing">
-                                {{item.school}}
-                            </span>
-                            <input ng-if="item.editing" ng-model="item.editing.school">
+                            {{item.school}}
                         </td>
                         <td>
-                            <span ng-if="!item.editing">
-                                {{item.location}}
-                            </span>
-                            <input ng-if="item.editing" ng-model="item.editing.location">
+                            {{item.location}}
                         </td>
                         <td>
-                            <span ng-if="!item.editing">
-                                {{item.date}}
-                            </span>
-                            <input ng-if="item.editing" ng-model="item.editing.date">
+                            {{item.timespan}}
                         </td>
                         <td>
-                            <!-- not editing -->
-                            <i class="fas fa-edit" ng-click="editEducation(item)" ng-if="!item.editing"></i>
-                            <!-- editing -->
-                            <i class="fas fa-check" ng-click="saveEducation(item, $index)" ng-if="item.editing"></i>
-                            <i class="fas fa-times" ng-click="cancelEducation(item, $index)" ng-if="item.editing"></i>
-                        </td>
-                        <td>
-                            <!-- not editing -->
-                            <i class="fas fa-trash-alt" ng-click="deleteEducation($index)" ng-if="!item.editing"></i>
+                            <i class="fas fa-edit" ng-click="editEducation(item, $index)"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -154,7 +143,7 @@
         </div>
     </section>
 
-    <!-- TODO: experience -->
+    <!-- experience -->
     <section>
         <h1>
             Experience
@@ -164,9 +153,51 @@
             </button>
         </h1>
         <div>
+            <table class="table" ng-if="state.experience.length">
+                <thead>
+                    <tr>
+                        <th width="10%">Move</th>
+                        <th width="25%">Title</th>
+                        <th width="25%">Organization</th>
+                        <th width="20%">Location</th>
+                        <th width="15%">Time Span</th>
+                        <th width="5%">Edit</th>
+                    </tr>
+                </thead>
+                <tbody ng-sortable>
+                    <tr ng-repeat="item in state.experience track by $index">
+                        <td>
+                            <i class="fas fa-arrows-alt" ng-sort></i>
+                        </td>
+                        <td>
+                            {{item.title}}
+                        </td>
+                        <td>
+                            {{item.organization}}
+                        </td>
+                        <td>
+                            {{item.location}}
+                        </td>
+                        <td>
+                            {{item.timespan}}
+                        </td>
+                        <td>
+                            <i class="fas fa-edit" ng-click="editExperience(item, $index)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
+
+    <div ng-include="'popups.htm'"></div>
 </body>
 
-<script src="angular.min.js"></script>
+<script src="lib/jquery-3.3.1.min.js"></script>
+
+<script src="lib/angular.min.js"></script>
+<script src="lib/angularjs-popup.js"></script>
+
+<script src="lib/html5sortable.js"></script>
+
 <script src="app.js"></script>

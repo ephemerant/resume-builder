@@ -1,0 +1,146 @@
+<!-- links -->
+<ng-popup title="Add Link" width=500>
+    <form class="popup-body" ng-submit="addLinkCommit()">
+        <div class="label-group">
+            <label>
+                URL
+                <input ng-model="adding.item.url" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Submit</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
+
+<ng-popup title="Edit Link" width=500>
+    <form class="popup-body" ng-submit="editLinkCommit()">
+        <div class="label-group">
+            <label>
+                URL
+                <input ng-model="editing.item.url" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Update</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
+
+<!-- education -->
+<ng-popup title="Add Education" width=500>
+    <form class="popup-body" ng-submit="addEducationCommit()">
+        <div class="label-group">
+            <label>
+                Degree
+                <input ng-model="adding.item.degree" required>
+            </label>
+            <label>
+                School
+                <input ng-model="adding.item.school" required>
+            </label>
+            <label>
+                Location
+                <input ng-model="adding.item.location" required>
+            </label>
+            <label>
+                Time Span
+                <input ng-model="adding.item.timespan" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Submit</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
+
+<ng-popup title="Edit Education" width=500>
+    <form class="popup-body" ng-submit="editEducationCommit()">
+        <div class="label-group">
+            <label>
+                Degree
+                <input ng-model="editing.item.degree" required>
+            </label>
+            <label>
+                School
+                <input ng-model="editing.item.school" required>
+            </label>
+            <label>
+                Location
+                <input ng-model="editing.item.location" required>
+            </label>
+            <label>
+                Time Span
+                <input ng-model="editing.item.timespan" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Update</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
+
+<!-- experience -->
+<ng-popup title="Add Experience" width=500>
+    <form class="popup-body" ng-submit="addExperienceCommit()">
+        <div class="label-group">
+            <label>
+                Title
+                <input ng-model="adding.item.title" required>
+            </label>
+            <label>
+                Organization
+                <input ng-model="adding.item.organization" required>
+            </label>
+            <label>
+                Location
+                <input ng-model="adding.item.location" required>
+            </label>
+            <label>
+                Time Span
+                <input ng-model="adding.item.timespan" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Submit</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
+
+<ng-popup title="Edit Experience" width=500>
+    <form class="popup-body" ng-submit="editExperienceCommit()">
+        <div class="label-group">
+            <label>
+                Title
+                <input ng-model="editing.item.title" required>
+            </label>
+            <label>
+                Organization
+                <input ng-model="editing.item.organization" required>
+            </label>
+            <label>
+                Location
+                <input ng-model="editing.item.location" required>
+            </label>
+            <label>
+                Time Span
+                <input ng-model="editing.item.timespan" required>
+            </label>
+        </div>
+        <br>
+        <div style="text-align: right;">
+            <button class="button blue" type="submit">Update</button>
+            <button class="button blue invert" type="button" ng-click="hidePopup()">Cancel</button>
+        </div>
+    </form>
+</ng-popup>
